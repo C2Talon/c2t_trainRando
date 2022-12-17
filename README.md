@@ -1,8 +1,8 @@
 # c2t_trainRando
 
-Uses the crimbo training manual to teach the skill to a random person on the list found in `data/c2t_trainRandoTargets.txt`. If that person already has the skill, it will just iterate through the list from that point until a valid target is found.
+Uses the crimbo training manual to teach the skill to a random person on the list found in `data/c2t_trainRandoTargets.txt`. If that random person already has the skill, it will just iterate through the list from that point until a valid target is found.
 
-The list is likely not going to be maintained well, if at all, so keep an eye out for if/when the script says it tried everyone and failed. Probably stop using this after that point. Or modify the list to suit your needs.
+The list this script uses is compiled from a publicly-available spreadsheet of those seeking the skills, and the list will be updated to match that spreadsheet at least once a day until 2023.
 
 # Installation
 
