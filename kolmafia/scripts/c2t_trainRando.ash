@@ -1,19 +1,34 @@
 //c2t trainRando
 //c2t
 
+since r27002;//crimbo training manual item
 
+
+//formatted messages
+void c2t_trainRandoMsg(string s,string c) {
+	print(`c2t_trainRando: {s}`,c);
+}
+void c2t_trainRandoMsg(string s) {
+	c2t_trainRandoMsg(s,"");
+}
+
+//for importing
 void c2t_trainRando() {
 	string prop = "_c2t_trainRandoDone";
 
+	if (item_amount($item[crimbo training manual]) == 0) {
+		c2t_trainRandoMsg("crimbo training manual not found","red");
+		return;
+	}
 	if (get_property(prop).to_boolean()) {
-		print("c2t_trainRando: rando trained already");
+		c2t_trainRandoMsg("trained a rando already today");
 		return;
 	}
 
 	buffer buf = visit_url(`inv_use.php?pwd={my_hash()}&which=3&whichitem=11046`,false,true);
 
 	if (buf.contains_text("You've already trained somebody today.")) {
-		print("c2t_trainRando: Crimbo training manual already used today");
+		c2t_trainRandoMsg("Crimbo training manual already used today");
 		set_property(prop,"true");
 		return;
 	}
@@ -30,21 +45,26 @@ void c2t_trainRando() {
 		buf = visit_url(`curse.php?pwd&action=use&whichitem=11046&targetplayer={target}`,true,true);
 		//"You train <playername>."
 		if (buf.contains_text('<b>Results:</b></td></tr><tr><td style="padding: 5px; border: 1px solid blue;"><center><table><tr><td>You train ')) {
-			print(`c2t_trainRando: taught the skill to "{target}"`,"blue");
+			c2t_trainRandoMsg(`trained "{target}"`,"blue");
 			if (miss > 0)
-				print(`c2t_trainRando: tried to teach {miss} people before finding a valid target`);
+				c2t_trainRandoMsg(`tried to train {miss} people before finding a valid target`);
 			set_property(prop,"true");
 			return;
 		}
 		//"They already know that skill."
 		else if (buf.contains_text("They already know that skill.")) {
 			miss++;
-			//print(`c2t_trainRando: already known by "{target}"`);
+			//c2t_trainRandoMsg(`already known by "{target}"`);
 		}
-		//not a valid player? other errors?
+		//not a valid player
+		else if (buf.contains_text("That player could not be found.")) {
+			miss++;
+			c2t_trainRandoMsg(`"{target}" could not be found; trying the next...`);
+		}
+		//other errors
 		else {
 			miss++;
-			print(`c2t_trainRando: unknown result from "{target}"; printing result:`,"red");
+			c2t_trainRandoMsg(`unknown result from "{target}"; printing result:`,"red");
 			print(buf);
 		}
 		
@@ -52,8 +72,9 @@ void c2t_trainRando() {
 			needle = 1;
 	} until (needle == start);
 
-	print("c2t_trainRando: Tried to teach everyone on the list and all failed. Probably don't run this again until you update the list.","red");
+	c2t_trainRandoMsg("Tried to train everyone on the list and all failed. Probably don't run this again until the list is updated.","red");
 }
 
+//for the CLI
 void main() c2t_trainRando();
 
