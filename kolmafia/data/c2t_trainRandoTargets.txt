@@ -28,6 +28,7 @@ Tehra
 Alium
 iamfromchina
 Glydon
+Name Guy Man
 reverkiller
 phreddrickkv2
 masteraccessory
@@ -55,7 +56,6 @@ Vicerious
 2258762
 Ezandora
 Ryo_Sangnoir
-2160615
 Miser
 1825454
 2766368
@@ -118,6 +118,9 @@ LunaDancer
 228637
 1813527
 2454478
-sevenofpurple
+2349351
 3028125
 132011
+2294290
+768069
+2035094
