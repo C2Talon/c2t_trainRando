@@ -51,23 +51,10 @@ void c2t_trainRando() {
 			set_property(prop,"true");
 			return;
 		}
-		//"They already know that skill."
-		else if (buf.contains_text("They already know that skill.")) {
+		//errors
+		else
 			miss++;
-			//c2t_trainRandoMsg(`already known by "{target}"`);
-		}
-		//not a valid player
-		else if (buf.contains_text("That player could not be found.")) {
-			miss++;
-			c2t_trainRandoMsg(`"{target}" could not be found; trying the next...`);
-		}
-		//other errors
-		else {
-			miss++;
-			c2t_trainRandoMsg(`unknown result from "{target}"; printing result:`,"red");
-			print(buf);
-		}
-		
+
 		if (++needle > size)
 			needle = 1;
 	} until (needle == start);
