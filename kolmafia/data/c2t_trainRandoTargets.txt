@@ -59,7 +59,6 @@ Chenny
 1725073
 lightbender
 Vicerious
-HastiferArken
 62192
 1107090
 cabbagesoup
@@ -79,7 +78,6 @@ fxfghbg
 2289244
 1659891
 394715
-2117907
 3437824
 1955580
 2080800
@@ -102,7 +100,6 @@ Roibeard
 509560
 1548029
 Lacey Jones
-1931455
 Prusias
 Magic Banana
 Zdrvst
@@ -111,8 +108,6 @@ Zdrvst
 Disco Sully
 1553305
 215559
-1813527
-2482247
 1938162
 Ciscum
 Greenfrog74
@@ -150,8 +145,12 @@ Spazmodic
 2063127
 Verus
 mrkol
+660183
 251863
+664493
 349293
 51350
+2335435
 2245039
 1452042
+2859323
