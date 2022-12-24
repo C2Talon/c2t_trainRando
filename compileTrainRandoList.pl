@@ -53,6 +53,7 @@ $buffer =~ s/\s*?\(.*\)//gm;
 $buffer =~ s/^[^\t]+\t(x|(have book))\t(x|(have book))\t(x|(have book))\t(x|(have book))\t(x|(have book))\t(x|(have book))\t(x|(have book))\t(x|(have book))\t(x|(have book))\t(x|(have book))\t(x|(have book))\t.+$//gmi;
 $buffer =~ s/\t.*$//gm;
 $buffer =~ s/\s+$//gm;
+$buffer =~ s/^\n*//g;
 $buffer .= "\n";
 
 #write to file
