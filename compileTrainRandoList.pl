@@ -13,7 +13,7 @@ use File::Copy;
 my $target = 'kolmafia/data/c2t_trainRandoTargets.txt';
 my $data = 'data.tsv';
 my $url = 'https://docs.google.com/spreadsheets/d/1N-9Ohjv11ch8bhivYxqYs6JHdTx8Ug2vMeGNLDzMH70/export?format=tsv&range=A5:M';
-my ($buffer,$temp);
+my ($buffer,$temp,$res);
 
 #delete backed-up data file and backup last data file
 if (-e "$data.bak") {
@@ -25,7 +25,7 @@ if (-e $data) {
 
 #download spreadsheet
 print "Downloading spreadsheet to $data...\n";
-my $res = getstore($url,$data);
+$res = getstore($url,$data);
 if (is_error($res)) {
 	die "getstore <$url> failed: $res";
 }
@@ -47,10 +47,10 @@ if ($temp < 3) {
 
 #string manip
 print "Running regexes...\n";
-$buffer =~ s/^.+[^y]$//gmi;
+$buffer =~ s/^([^\t]*\t){12}(?!y$).*$//gmi;
+$buffer =~ s/^([^\t]+\t){12}.*$//gm;
 $buffer =~ s/^[^\t\(]+\(#?(\d+)\)/$1/gm;
-$buffer =~ s/\s*?\(.*\)//gm;
-$buffer =~ s/^[^\t]+\t(x|(have book))\t(x|(have book))\t(x|(have book))\t(x|(have book))\t(x|(have book))\t(x|(have book))\t(x|(have book))\t(x|(have book))\t(x|(have book))\t(x|(have book))\t(x|(have book))\t.+$//gmi;
+$buffer =~ s/\s*\(.*\)//gm;
 $buffer =~ s/\t.*$//gm;
 $buffer =~ s/\s+$//gm;
 $buffer =~ s/^\n*//g;
