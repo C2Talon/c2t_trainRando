@@ -39,6 +39,7 @@ boolean c2t_trainRando() {
 	int size = list.count();
 	if (size < 2) {//decidedly not a list; also, random() breaks if less than 2
 		c2t_trainRandoMsg("the list is too short to be a list","red");
+		c2t_trainRandoMsg("there is no list provided by default anymore, so that may be why you are seeing this error","red");
 		return false;
 	}
 	int start = random(size)+1;
