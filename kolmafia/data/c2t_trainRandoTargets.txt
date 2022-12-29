@@ -4,7 +4,6 @@ iamfromchina
 LunaDancer
 132011
 1483053
-1758039
 2213705
 3352440
 969946
@@ -18,17 +17,14 @@ playultm8
 852958
 2237038
 Hellux
-437479
 ryllwyn
 806486
 Chenny
 Vicerious
-62192
 cabbagesoup
 736158
 1483803
 394715
-2117907
 1787271
 Name Guy Man
 Akatosh
@@ -41,7 +37,6 @@ Akatosh
 684704
 2265428
 3084638
-HonourKissing
 HerrKapital
 1965526
 2093665
@@ -49,7 +44,6 @@ HerrKapital
 452917
 Spazmodic
 1817203
-1295152
 2063127
 Verus
 mrkol
@@ -57,9 +51,10 @@ mrkol
 Ryu King
 kissel92
 1816430
+349293
+43669
 664493
 1224887
-2339258
 1794767
 1668832
 1675227
